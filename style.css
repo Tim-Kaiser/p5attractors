@@ -1,0 +1,43 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas{
+    display: block;
+    cursor : none;
+
+}
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+    --size: 8px;
+    --primary: #dc5656;
+    width: --size;
+    height: --size;
+    background-color: --primary;
+}
+
+.cursor-dot-outline {
+    --size: 40px;
+    --primary: #dc5656;
+    --primary-light: mix(white, --primary, 25%);
+    width: --size;
+    height: --size;
+    background-color: rgba(--primary-light, 0.5);
+}
+
+
+
