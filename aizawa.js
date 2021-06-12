@@ -18,7 +18,7 @@ let ptList;
 let pt;
 function setup(){
     createCanvas(windowWidth, windowHeight, WEBGL);
-    background(0);
+    // background(150);
     frameRate(30);
     colorMode(HSL);
     prevX = 0.1;
@@ -45,25 +45,12 @@ function setup(){
 }
 
 function draw(){
-    background(0);
-      rotateX(radians(90));
-      rotateY(radians(45));
-      translate(200,-400);
+    background(15);
+    rotateX(radians(90));
+    rotateY(radians(45));
+    translate(200,-400);
 
-     scale(300);
-    // let dx = (z-b)*x - d*y;
-    // let dy = d*x + (z-b)*y;
-    // let dz = c + a*z - z*z*z/3 - (x*x + y*y)*(1 + e*z) + f*z*x*x*x;
-    
-    // x = (x + dx * dt);
-    // y = (y + dy * dt);
-    // z = (z + dz * dt);
-    // stroke(color(52, 100, 44));
-    // line(prevX, prevY, prevZ, x,y,z);
-
-    // prevX = x;
-    // prevY = y;
-    // prevZ = z;
+    scale(400);
     for(const pt of ptList){
         pt.move();
         pt.draw();
@@ -108,7 +95,7 @@ class Pt{
         }
     }
     draw(){
-        strokeWeight(1);
+        strokeWeight(2);
         for(let i = 1; i < this.points.length; i++){
             stroke(this.col1);
             if(this.points[i][1] > 1){
