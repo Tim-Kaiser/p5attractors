@@ -129,7 +129,7 @@ class Field{
     setup(){
         let dx = 0.1
         for(let i = 0; i < this.amount; i++){
-            this.lineList.push(new Line(200, [[dx,0,0]], this.container));
+            this.lineList.push(new Line(250, [[dx,0,0]], this.container));
             dx += 0.1;
         }
     }
@@ -159,8 +159,6 @@ class Field{
                 if(this.container.inCont(l.points[i -1]) && this.container.inCont(l.points[i -1]) && this.container.inCont(l.points[i]) && this.container.inCont(l.points[i])){
                     line(l.points[i-1][0],l.points[i-1][1],l.points[i-1][2], l.points[i][0],l.points[i][1],l.points[i][2]);
                 }
-                //  line(l.points[i-1][0],l.points[i-1][1],l.points[i-1][2], l.points[i][0],l.points[i][1],l.points[i][2]);
-                // // point(l.points[i][0],l.points[i][1],l.points[i][2]);
             }
         }
     }

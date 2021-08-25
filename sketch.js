@@ -24,13 +24,13 @@ function setup() {
 
 
   if(attractorMode == 1){
-    attractor = new LorenzAttractor(5, 0.01);
+    attractor = new LorenzAttractor(10, 0.01);
   }else if(attractorMode == 2){
     attractor = new RoesslerAttractor(30, 0.01);
   }else if(attractorMode == 3){
-    attractor = new AizawaAttractor(1, 0.01);
+    attractor = new AizawaAttractor(10, 0.01);
   }else if(attractorMode == 4){
-    attractor = new ChenLeeAttractor(10, 0.01);
+    attractor = new ChenLeeAttractor(15, 0.01);
   }
   if(attractorMode != 0){
     attractor.setup();
@@ -72,7 +72,6 @@ function draw() {
     fill('white');
     ellipse(mpX, mpY, 4, 4);
   }
-  
   if(attractor instanceof AizawaAttractor){
     //position the attractor correctly in 3D space
     rotateX(radians(90));
@@ -86,6 +85,7 @@ function draw() {
     scale(10);
     attractor.move();
     attractor.display();
+    // console.log(attractor.pointList[0].x);
   }else if(attractor instanceof RoesslerAttractor){
     translate(-100,0);
     rotateY(radians(45));
@@ -94,8 +94,8 @@ function draw() {
     attractor.move();
     attractor.display();
   }else if(attractor instanceof ChenLeeAttractor){
-    //not optimal yet
-    scale(10);
+    rotateX(45);
+    scale(25);
     attractor.move();
     attractor.display();
   }
@@ -145,6 +145,7 @@ class ChenLeeAttractor{
   setup(){
     let xPos = 0.1
     for(let i = 0; i < this.points; i++){
+      //5, -10, -0.38
       let pt = new Point(xPos,0,4.5, 5, -10, -0.38, null, null, null);
       this.pointList.push(pt);
       xPos += this.increment;
@@ -321,9 +322,9 @@ class Point {
         this.y = (this.y + dy * dt);
         this.z = (this.z + dz * dt);
       }else if(mode == 'chenlee'){
-        let a = this.a;
-        let b = this.b;
-        let c = this.c;
+        let a = this.a; //5
+        let b = this.b; //-10
+        let c = this.c; //-0.38
 
         let x = this.x;
         let y = this.y;
